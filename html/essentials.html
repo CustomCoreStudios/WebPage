@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../css/essentials.css">
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="essentials">
+      <ul class="essentials">
+        <li><a href="#" id="home" class="essentials">Home</a></li>
+        <li><a href="#" id="portofolio" class="essentials">Portfolio</a></li>
+        <li><a href="#" id="games" class="essentials">Games</a></li>
+        <li><a href="#" id="openSource" class="essentials">Open Source</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <footer>
+    <p class="essentials">&copy; CustomCore Studios. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const links = {
+      home: "../index.html",
+      portofolio: "../portofolio",
+      games: "../html/games.html",
+      openSource: "../html/openSource.html"
+    };
+
+    Object.entries(links).forEach(([id, href]) => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener("click", () => window.top.location.href = href);
+    });
+  </script>
+</body>
+</html>
