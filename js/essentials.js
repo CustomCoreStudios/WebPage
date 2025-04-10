@@ -20,7 +20,7 @@ function loadEssentialsWithRetry() {
     const filename = path.substring(path.lastIndexOf("/") + 1).toLowerCase();
 
     const zIndexOverrides = {
-        "portofolio.html": 5
+        "portofolio": 5
     };
 
     if (filename in zIndexOverrides) {
