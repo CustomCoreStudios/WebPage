@@ -1,13 +1,25 @@
 function loadEssentialsWithRetry() {
-    const url = "/html/essentials.html";
     const maxRetries = 5;
     let attempt = 0;
-    let customZIndex = 1; // default
+    let customZIndex = 1;
 
-    // Check if in an editor environment
+    const path = window.location.pathname;
+    const parts = path.split('/');
+    const filename = parts[parts.length - 2]?.toLowerCase() || "";
+    
+    // 🔍 Determine which path to load
+    let url;
+    if (path.endsWith("/") && parts.length <= 3) {
+        // Main site: e.g. /WebPage/
+        url = "html/essentials.html";
+    } else {
+        // Subpage: e.g. /WebPage/portofolio/
+        url = "../html/essentials.html";
+    }
+
+    // Editor detection
     const isEditor = () => {
-        // Example condition: Adjust based on how your editor indicates its presence
-        return window.location.hostname === "localhost"; // Modify this for your editor's setup
+        return window.location.hostname === "localhost";
     };
 
     if (isEditor()) {
@@ -15,10 +27,7 @@ function loadEssentialsWithRetry() {
         return;
     }
 
-    // 🔍 Override zIndex if the page matches certain names
-    const parts = window.location.pathname.split('/');
-    const filename = parts[parts.length - 2].toLowerCase();
-    
+    // zIndex overrides
     const zIndexOverrides = {
         "portofolio": 5
     };
@@ -71,4 +80,4 @@ function loadEssentialsWithRetry() {
     tryLoadEssentials();
 }
 
-loadEssentialsWithRetry()
+loadEssentialsWithRetry();
