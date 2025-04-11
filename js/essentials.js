@@ -17,7 +17,7 @@ function loadEssentialsWithRetry() {
 
     // 🔍 Override zIndex if the page matches certain names
     const parts = window.location.pathname.split('/');
-    const folder = parts[parts.length - 2].toLowerCase();
+    const filename = parts[parts.length - 2].toLowerCase();
     
     const zIndexOverrides = {
         "portofolio": 5
