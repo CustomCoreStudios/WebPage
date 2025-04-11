@@ -1,5 +1,5 @@
 function loadEssentialsWithRetry() {
-    const url = "../html/essentials.html";
+    const url = "/html/essentials.html";
     const maxRetries = 5;
     let attempt = 0;
     let customZIndex = 1; // default
