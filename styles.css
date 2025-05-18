@@ -73,7 +73,6 @@ nav ul li a:hover::after {
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
-    border: 2px solid #363636;
     gap: 15px;
     border-radius: 20px;
     margin: 20px auto;
@@ -115,6 +114,48 @@ footer {
     text-align: center;
     width: 100%;
     color: #ccc;
+}
+
+.error-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    border: 2px solid #363636;
+    gap: 15px;
+    border-radius: 20px;
+    margin: 40px auto 20px;
+    text-align: center;
+    max-width: 400px;
+    background-color: #fff;
+}
+
+.error-message h1 {
+    font-size: 4rem;
+    color: #ff4444;
+    margin: 0;
+}
+
+.error-message p {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+}
+
+.error-message .home-link {
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    font-weight: bold;
+}
+
+.error-message .home-link:hover {
+    background-color: #0056b3;
 }
 
 @media (max-width: 750px) {
