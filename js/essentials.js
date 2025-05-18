@@ -7,7 +7,7 @@ function loadEssentialsWithRetry() {
     const isEditor = () => window.location.hostname === "localhost";
 
     // 🔍 Check if we're at or near root (main page or 404)
-    const isRootLevel = path === "/" || path.split("/").filter(Boolean).length <= 1;
+    const isRootLevel = location.pathname == "/";
 
     // Set URL accordingly
     const url = isRootLevel ? "html/essentials.html" : "../html/essentials.html";
