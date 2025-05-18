@@ -6,11 +6,7 @@ function loadEssentialsWithRetry() {
     const path = window.location.pathname;
     const isEditor = () => window.location.hostname === "localhost";
 
-    // 🔍 Check if we're at or near root (main page or 404)
-    const isRootLevel = location.pathname == "/";
-
-    // Set URL accordingly
-    const url = isRootLevel ? "html/essentials.html" : "../html/essentials.html";
+    const url = "https://customcorestudios.github.io/WebPage/html/essentials.html"
 
     // 🛑 Don't load in editor
     if (isEditor()) {
