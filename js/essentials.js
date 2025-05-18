@@ -11,10 +11,10 @@ function loadEssentialsWithRetry() {
     let url;
     if (path.endsWith("/") && parts.length <= 3) {
         // Main site: e.g. /WebPage/
-        url = "html/essentials.html";
+        url = "https://customcorestudios.github.io/WebPage/html/essentials.html";
     } else {
         // Subpage: e.g. /WebPage/portofolio/
-        url = "../html/essentials.html";
+        url = "https://customcorestudios.github.io/WebPage/html/essentials.html";
     }
 
     // Editor detection
