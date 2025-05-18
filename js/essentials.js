@@ -4,34 +4,25 @@ function loadEssentialsWithRetry() {
     let customZIndex = 1;
 
     const path = window.location.pathname;
-    const parts = path.split('/');
-    const filename = parts[parts.length - 2]?.toLowerCase() || "";
-    
-    // 🔍 Determine which path to load
-    let url;
-    if (path.endsWith("/") && parts.length <= 3) {
-        // Main site: e.g. /WebPage/
-        url = "html/essentials.html";
-    } else {
-        // Subpage: e.g. /WebPage/portofolio/
-        url = "../html/essentials.html";
-    }
+    const isEditor = () => window.location.hostname === "localhost";
 
-    // Editor detection
-    const isEditor = () => {
-        return window.location.hostname === "localhost";
-    };
+    // 🔍 Check if we're at or near root (main page or 404)
+    const isRootLevel = path === "/" || path.split("/").filter(Boolean).length <= 1;
 
+    // Set URL accordingly
+    const url = isRootLevel ? "html/essentials.html" : "../html/essentials.html";
+
+    // 🛑 Don't load in editor
     if (isEditor()) {
         console.log("🛑 Detected editor environment. Not loading essentials.");
         return;
     }
 
-    // zIndex overrides
+    // Custom z-index per page
+    const filename = path.split("/").filter(Boolean).slice(-1)[0]?.toLowerCase() || "";
     const zIndexOverrides = {
         "portofolio": 5
     };
-
     if (filename in zIndexOverrides) {
         customZIndex = zIndexOverrides[filename];
         console.log(`🧪 Detected special page (${filename}), setting z-index to ${customZIndex}`);
